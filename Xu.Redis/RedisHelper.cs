@@ -10,6 +10,7 @@ namespace Xu.Redis
 {
     /// <summary>
     /// Redis帮助类
+    /// xqh 2015-12-26
     /// </summary>
     public sealed class RedisHelper
     {
