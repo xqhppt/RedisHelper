@@ -120,11 +120,27 @@ namespace Xu.Redis
 
         #region String
 
+        /// <summary>
+        /// 获取key对应的值
+        /// </summary>
+        /// <param name="key">键</param>
+        /// <param name="db">数据库编号</param>
+        /// <param name="conn">连接器</param>
+        /// <returns></returns>
         public static async Task<string> Get(string key,int db = 0,ConnectionMultiplexer conn = null)
         {
             return await GetReadDb(db, conn).StringGetAsync(key);
         }
 
+        /// <summary>
+        /// 设置键值
+        /// </summary>
+        /// <param name="key">键</param>
+        /// <param name="value">值</param>
+        /// <param name="db">数据库编号</param>
+        /// <param name="ts">过期时间</param>
+        /// <param name="conn">连接器</param>
+        /// <returns></returns>
         public static async Task<bool> Set(string key, string value, int db = 0, TimeSpan? ts = null, ConnectionMultiplexer conn = null)
         {
             return await GetWriteDb(db, conn).StringSetAsync(key, value, ts);
